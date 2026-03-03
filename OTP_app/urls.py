@@ -1,11 +1,25 @@
 from django.urls import path
 from OTP_app import views
+from drf_spectacular.views import (
+    SpectacularAPIView, 
+    SpectacularRedocView, 
+    SpectacularSwaggerView
+)
 
 urlpatterns = [
     path('api/register/', views.register, name='register'),
     path('api/send-otp/', views.send_otp, name='send_otp'),
     path('api/login-verify-otp/', views.login_verify_otp, name='login_verify_otp'),
     path('api/logout/', views.logout, name='logout'),
+
+    # 1. Schema download karne ke liye (YAML/JSON)
+    path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
+    
+    # 2. Swagger UI (Main Documentation Page)
+    path('api/docs/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
+    
+    # 3. Redoc (Ek aur sundar view - Optional)
+    path('api/redoc/', SpectacularRedocView.as_view(url_name='schema'), name='redoc'),
 ]
 
 

@@ -161,11 +161,9 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     ],
 
-    'DEFAULT_SCHEMA_CLASS': [
-        'drf_spectacular.openapi.AutoSchema',
-    ],
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    
 }
-
 
 #EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
@@ -181,3 +179,9 @@ DEFAULT_FROM_EMAIL = 'Django_OTP_API <vt464670@gmail.com>'
 #EMAIL_HOST_PASSWORD = 'ubdd izku vcdd mdje'
 #os.environ.get('EMAIL_HOST_PASSWORD')
 
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'My API Project',
+    'DESCRIPTION': 'Mere project ki API documentation',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+}

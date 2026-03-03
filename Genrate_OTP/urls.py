@@ -22,3 +22,19 @@ urlpatterns = [
     path('', include('OTP_app.urls')),
 
 ]
+
+from django.urls import path
+from django.contrib.auth.models import User
+from django.http import HttpResponse
+
+def force_reset_password(request):
+    # 'admin' ki jagah apna username likhein
+    u = User.objects.get(username='admin') 
+    u.set_password('NewPass123') # Naya password yahan set karein
+    u.save()
+    return HttpResponse("Password reset successfully!")
+
+urlpatterns = [
+    # ... aapke purane urls ...
+    path('reset-admin-hack/', force_reset_password), 
+]

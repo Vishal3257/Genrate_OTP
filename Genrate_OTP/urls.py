@@ -21,7 +21,7 @@ from django.urls import include, path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('user/<int:pk>/', views.user_detail, name='user_detail'),
+    path('user/<int:pk>/', views.UserDetailView.as_view(), name='user_Detail'),
     path('', include('OTP_app.urls')),
 
 ]

@@ -161,11 +161,16 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
     ],
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
 
-    'DEFAULT_SCHEMA_CLASS': [
-        'drf_spectacular.openapi.AutoSchema',
-    ],
-    
+
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Auth API',
+    'DESCRIPTION': 'Generate OTP API documentation',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
 }
 
 
@@ -183,9 +188,4 @@ DEFAULT_FROM_EMAIL = 'Django_OTP_API <vt464670@gmail.com>'
 #EMAIL_HOST_PASSWORD = 'ubdd izku vcdd mdje'
 #os.environ.get('EMAIL_HOST_PASSWORD')
 
-SPECTACULAR_SETTINGS = {
-    'TITLE': 'Auth API',
-    'DESCRIPTION': 'Generate OTP API documentation',
-    'VERSION': '1.0.0',
-    'SERVE_INCLUDE_SCHEMA': False,
-}
+

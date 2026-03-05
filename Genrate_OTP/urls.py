@@ -20,8 +20,8 @@ from django.urls import include, path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('OTP_app.urls')),
     path('user/<int:pk>/', views.user_detail, name='user_detail'),
+    path('', include('OTP_app.urls')),
 
 ]
 

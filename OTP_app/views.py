@@ -1,7 +1,7 @@
 from datetime import timedelta
+from rest_framework.response import Response
 from rest_framework.authtoken.models import Token
 from rest_framework.permissions import AllowAny,IsAuthenticated
-from rest_framework.response import Response
 from rest_framework.decorators  import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated 
 from OTP_app.serializers import  OTPRequestSerializer, OTPVerifySerializer, UserSerializer
@@ -15,10 +15,6 @@ from django.core.mail import send_mail
 class UserCreateView(generics.CreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-
-class UserCreateView(generics.CreateAPIView):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer  
 
 @api_view(['GET'])
 def user_detail(request, pk):

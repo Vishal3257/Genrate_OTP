@@ -21,8 +21,6 @@ def user_detail(request, pk):
     return Response({"message": "{}".format(pk)})    
 
 
-
-
 @api_view(['POST'])
 @permission_classes([AllowAny])
 def register(request):

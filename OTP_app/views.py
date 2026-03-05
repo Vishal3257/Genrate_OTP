@@ -16,10 +16,10 @@ class UserCreateView(generics.CreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
-@api_view(['GET'])
-def user_detail(request, pk):
-    return Response({"message": "{}".format(pk)})    
-
+class UserDetailView(generics.RetrieveAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+        
 
 @api_view(['POST'])
 @permission_classes([AllowAny])

@@ -4,17 +4,33 @@ from rest_framework.permissions import AllowAny,IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.decorators  import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated 
-from OTP_app.serializers import RegisterSerializer, OTPRequestSerializer, OTPVerifySerializer
+from OTP_app.serializers import  OTPRequestSerializer, OTPVerifySerializer, UserSerializer
 from OTP_app.models import User
+from rest_framework import generics
 from django.core.mail import send_mail
 
 
 # Create your views here.
 
+class UserCreateView(generics.CreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+class UserCreateView(generics.CreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer  
+
+@api_view(['GET'])
+def user_detail(request, pk):
+    return Response({"message": "{}".format(pk)})    
+
+
+
+
 @api_view(['POST'])
 @permission_classes([AllowAny])
 def register(request):
-    serializer = RegisterSerializer(data=request.data)
+    serializer = UserSerializer(data=request.data)
     if serializer.is_valid():
         serializer.save()
         return Response(serializer.data, status=201)

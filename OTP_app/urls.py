@@ -12,13 +12,13 @@ urlpatterns = [
     path('api/login-verify-otp/', views.login_verify_otp, name='login_verify_otp'),
     path('api/logout/', views.logout, name='logout'),
 
-    # 1. Schema download karne ke liye (YAML/JSON)
+    # 1  (YAML/JSON)
     path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
     
     # 2. Swagger UI (Main Documentation Page)
     path('api/docs/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
     
-    # 3. Redoc (Ek aur sundar view - Optional)
+    # 3. Redoc (Ek view - Optional)
     path('api/redoc/', SpectacularRedocView.as_view(url_name='schema'), name='redoc'),
 ]
 

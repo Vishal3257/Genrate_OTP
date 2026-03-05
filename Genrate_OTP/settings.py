@@ -10,7 +10,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 import os
-import drf_spectacular
 from pathlib import Path
 
 
@@ -163,7 +162,9 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     ],
 
-    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    'DEFAULT_SCHEMA_CLASS': [
+        'drf_spectacular.openapi.AutoSchema',
+    ],
     
 }
 
@@ -183,8 +184,8 @@ DEFAULT_FROM_EMAIL = 'Django_OTP_API <vt464670@gmail.com>'
 #os.environ.get('EMAIL_HOST_PASSWORD')
 
 SPECTACULAR_SETTINGS = {
-    'TITLE': 'My API Project',
-    'DESCRIPTION': 'Mere project ki API documentation',
+    'TITLE': 'Auth API',
+    'DESCRIPTION': 'Generate OTP API documentation',
     'VERSION': '1.0.0',
     'SERVE_INCLUDE_SCHEMA': False,
 }

@@ -12,7 +12,7 @@ urlpatterns = [
     path('api/login-verify-otp/', views.login_verify_otp, name='login_verify_otp'),
     path('api/logout/', views.logout, name='logout'),
 
-    # 1  (YAML/JSON)
+    # 1  (JSON)
     path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
     
     # 2. Swagger UI (Main Documentation Page)

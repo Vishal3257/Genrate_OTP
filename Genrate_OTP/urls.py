@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('user/<int:pk>/', views.UserDetailView.as_view(), name='user_Detail'),
     path('', include('OTP_app.urls')),
+    path('api/otp/', include('OTP_app.urls'))
 
 ]
 
